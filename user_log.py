@@ -9,12 +9,15 @@ def log_user():
     global user
     screen = Tk()
     screen.title('Innregistrare')
-    screen.config(pady=20, padx=20, width=500, height=500)
-    # screen.grid()
+    screen.config(pady=20, padx=20)
+    canvas = Canvas()
+    canvas.config(height=200, width=200)
+    canvas.grid(rowspan=5)
+
     mesaj_text = Label(text='Innregistrare user:')
-    mesaj_text.grid(row=0, column=0)
+    mesaj_text.grid(row=1, column=0)
     mesaj_box = Entry(width=20)
-    mesaj_box.grid(row=1, column=0)
+    mesaj_box.grid(row=2, column=0)
 
     def but_inn():
         global user
@@ -40,7 +43,7 @@ def log_user():
                     break
 
     but_innregistrare = Button(text='Innregistrare', width=20, command=but_inn)
-    but_innregistrare.grid(row=2, column=0)
+    but_innregistrare.grid(row=3, column=0, rowspan=1)
     screen.mainloop()
     if len(user) < 2:
         sys.exit()

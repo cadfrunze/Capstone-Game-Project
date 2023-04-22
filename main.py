@@ -7,7 +7,8 @@ messagebox.showinfo(message=f'Bun venit \n{user_name.capitalize()}')
 window = Tk()
 window.title(string='Flasy')
 window.config(height=600, width=600)
-window.grid()
+
+
 
 
 
