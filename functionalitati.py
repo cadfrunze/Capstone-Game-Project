@@ -36,8 +36,6 @@ def random_ro(word_en: str, word_ro: str):
     return [word_en, word_ro]
 
 
-afisare = afisare_raspuns()
-afisare_random = random_ro(word_en=afisare[0], word_ro=afisare[1])
 
-print(afisare)
-print(afisare_random)
+
+
