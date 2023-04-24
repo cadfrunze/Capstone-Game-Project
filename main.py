@@ -20,7 +20,8 @@ canvas_front = Canvas(width=800, height=526, highlightthickness=0)
 canvas_front.create_image((400, 263), image=photo_front)
 canvas_front.config(bg=BACKGROUND_COLOR)
 canvas_front.create_text((400, 150), text='Title', font=('Ariel', 40, 'italic'))
-canvas_front.create_text((400, 263), text='word', font=('Ariel', 60, 'bold'))
+canvas_front.create_text((400, 263), text='inseamna', font=('Ariel', 40, 'italic'))
+canvas_front.create_text((400, 363), text='word', font=('Ariel', 60, 'bold'))
 canvas_front.grid(column=0, row=0, columnspan=2)
 
 unknwon_button = Button(image=photo_wrong, highlightthickness=0)
@@ -28,6 +29,9 @@ unknwon_button.grid(column=0, row=1)
 
 right_button = Button(image=photo_right, highlightthickness=0)
 right_button.grid(column=1, row=1,)
+
+
+
 
 
 
