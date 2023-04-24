@@ -1,7 +1,7 @@
 from tkinter import *
 from user_log import log_user
 from tkinter import messagebox
-from functionalitati import alegere
+
 import sys
 
 # user_name = log_user()
