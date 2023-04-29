@@ -5,6 +5,7 @@ from tkinter import messagebox
 from functionalitati import afisare_raspuns, random_ro, data_coloana
 import json
 import time
+from datetime import datetime
 
 user_name = log_user()
 messagebox.showinfo(message=f'Bun venit \n{user_name.capitalize()}')
@@ -40,6 +41,7 @@ def raspuns_artistic(count: int, valoare_bool: bool):
         font_size = 1
         canvas.itemconfig(inseamna, text='inseamna')
         # window.after_cancel(timer)
+
 
 # Definirea butoanelor
 def right_fun():
@@ -99,17 +101,18 @@ artistic = canvas.create_text((400, 263), text='', font=('Ariel', 10, 'bold'), f
 afisare_scor = canvas.create_text((100, 50), text='', fill='blue')
 canvas.grid(column=0, row=0, columnspan=2)
 
-unknwon_button = Button(image=photo_wrong, highlightthickness=0, command=wrong_fun)
+unknwon_button = Button(image=photo_wrong, highlightthickness=0)
 unknwon_button.grid(column=0, row=1)
 
-right_button = Button(image=photo_right, highlightthickness=0, command=right_fun)
+right_button = Button(image=photo_right, highlightthickness=0)
 right_button.grid(column=1, row=1)
-
 
 
 # Rularea jocului cu functionalitati
 def jocul_spate(rol=True):
     global cuvant2
+    right_button.config(command=right_fun)
+    unknwon_button.config(command=wrong_fun)
     cuvant2 = random_ro(cuvant1[0], cuvant1[1])
     canvas.itemconfig(imaginea, image=photo_back)
     canvas.itemconfig(second_cuvant, text=f'{cuvant2.capitalize()}?')
@@ -121,7 +124,8 @@ def jocul_fata():
     global cuvant1
     cuvant1 = afisare_raspuns()
     if scor > 0:
-        canvas.itemconfig(afisare_scor, text=f'User: {user_name.capitalize()}\nScor: {scor}\nIntrebari ramase: {len(data_coloana)}')
+        canvas.itemconfig(afisare_scor,
+                          text=f'User: {user_name.capitalize()}\nScor: {scor}\nIntrebari ramase: {len(data_coloana)}')
     canvas.itemconfig(inseamna, text='inseamna')
     canvas.itemconfig(imaginea, image=photo_front)
     canvas.itemconfig(primul_cuvant, text=f'{cuvant1[0].capitalize()}')
@@ -133,10 +137,27 @@ jocul_fata()
 
 window.mainloop()
 
-# try:
-#     file = open('./data/scor_useri.json')
-#     file.close()
-# except FileNotFoundError:
-#
-#     with open('./data/scor_useri.json', 'w') as file:
-#         json.
+# Salavre date intr-un dictionar, data calendaristica, user, si scor
+data_calendar = str(datetime.now())
+
+data_dict = {
+    data_calendar: {
+        "user": user_name,
+        "scor": scor,
+    }
+
+}
+
+try:
+    file = open('./data/scor_useri.json')
+    file.close()
+except FileNotFoundError:
+    with open('./data/scor_useri.json', 'w') as file:
+        json.dump(data_dict, file, indent=4)
+else:
+    file1 = open('./data/scor_useri.json')
+    all_data: dict = json.load(file1)
+    all_data.update(data_dict)
+    with open('./data/scor_useri.json', 'w') as data:
+        json.dump(all_data, data, indent=4)
+    file1.close()
