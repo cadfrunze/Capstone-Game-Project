@@ -142,9 +142,9 @@ data_calendar = str(datetime.now())
 
 data_dict = {
     data_calendar: {
-        "user": user_name,
-        "scor": scor,
-    }
+        "User": user_name,
+        "Scor": scor,
+        }
 
 }
 
