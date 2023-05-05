@@ -118,6 +118,9 @@ def jocul_spate(rol=True):
     canvas.itemconfig(second_cuvant, text=f'{cuvant2.capitalize()}?')
 
 
+
+
+
 def jocul_fata():
     global timer
     global scor
@@ -144,7 +147,7 @@ data_dict = {
     data_calendar: {
         "User": user_name,
         "Scor": scor,
-        }
+    }
 
 }
 
