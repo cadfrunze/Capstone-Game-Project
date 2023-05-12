@@ -1,8 +1,5 @@
 import pandas as pd
 import random
-from tkinter import Canvas
-import time
-
 
 data = pd.read_csv('./data/Frequency list-en-ro.csv')
 data_coloana_en = data.en
@@ -39,5 +36,3 @@ def random_ro(word_en: str, word_ro: str):
                 break
     data_coloana.remove(data_word_en)
     return word_ro
-
-

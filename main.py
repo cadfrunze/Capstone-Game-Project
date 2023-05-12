@@ -10,9 +10,9 @@ from datetime import datetime
 user_name = log_user()
 messagebox.showinfo(message=f'Bun venit \n{user_name.capitalize()}')
 BACKGROUND_COLOR = "#B1DDC6"
-cuvant1 = None
-cuvant2 = None
-cerinta = None
+cuvant1, cuvant2, cerinta = None, None, None
+# cuvant2 = None
+# cerinta = None
 scor = 0
 data_check = pd.read_csv('./data/Frequency list-en-ro.csv')
 COUNT = 20
